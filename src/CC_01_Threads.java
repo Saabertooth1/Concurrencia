@@ -1,24 +1,9 @@
 public class CC_01_Threads extends Thread{
 
-    final int SleepTime = 4000;
+    private int identifier;
 
-    int i;
-
-    public CC_01_Threads (int i){
-
-        this.i = i;
-    }
-
-    public void run(){
-        System.out.println("Hello from Thread " + i);
-
-        try {
-            Thread.sleep(SleepTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println("Thread " + i + " has ended");
+    private CC_01_Threads (int i){
+        this.identifier = i;
     }
 
     public static void main(String[] args) {
@@ -40,5 +25,18 @@ public class CC_01_Threads extends Thread{
         }
 
         System.out.println("All Threads have ended");
+    }
+
+    public void run(){
+        System.out.println("Hello from Thread " + identifier);
+        int t = 3000;
+
+        try {
+            Thread.sleep(t);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Thread " + identifier + " has ended");
     }
 }
